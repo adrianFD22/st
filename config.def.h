@@ -223,22 +223,25 @@ static MouseShortcut mshortcuts[] = {
 #define MODKEY Mod4Mask
 #define TERMMOD Mod1Mask
 
+static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
+
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	//{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	//{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	//{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	//{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_plus,        zoom,           {.f = +1} },
-	{ TERMMOD,              XK_minus,       zoom,           {.f = -1} },
-	{ TERMMOD,              XK_0,           zoomreset,      {.f =  0} },
+	{ TERMMOD,                  XK_plus,        zoom,           {.f = +1} },
+	{ TERMMOD,                  XK_minus,       zoom,           {.f = -1} },
+	{ TERMMOD,                  XK_0,           zoomreset,      {.f =  0} },
+	{ TERMMOD,                  XK_y,           externalpipe,   {.v = copyoutput } },
 	{ ControlMask|ShiftMask,    XK_C,           clipcopy,       {.i =  0} },
 	{ ControlMask|ShiftMask,    XK_V,           clippaste,      {.i =  0} },
 	//{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	//{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_k,           kscrollup,      {.i = 1} },
-	{ TERMMOD,              XK_j,           kscrolldown,    {.i = 1} },
+	{ TERMMOD,                  XK_Num_Lock,    numlock,        {.i =  0} },
+	{ TERMMOD,                  XK_k,           kscrollup,      {.i = 1} },
+	{ TERMMOD,                  XK_j,           kscrolldown,    {.i = 1} },
 };
 
 /*
